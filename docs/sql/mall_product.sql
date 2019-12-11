@@ -13,6 +13,8 @@
 
  Date: 05/06/2019 07:57:40
 */
+create database if not exists mall_product  default charset=utf8;
+use mall_product;
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;

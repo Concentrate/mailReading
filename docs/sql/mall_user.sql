@@ -14,6 +14,8 @@
  Date: 05/06/2019 07:58:03
 */
 
+create database if not exists mall_user  default charset=utf8;
+use mall_user;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
