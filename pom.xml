@@ -51,7 +51,7 @@
         <sentinel.version>0.9.0.RELEASE</sentinel.version>
 
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <org.projectlombok.version>1.16.14</org.projectlombok.version>
+        <org.projectlombok.version>1.18.10</org.projectlombok.version>
 
         <qiniu.version>7.2.18</qiniu.version>
         <skywalking.version>6.1.0</skywalking.version>
