@@ -94,6 +94,8 @@ const cachedSave = (response, hashcode) => {
  * @param  {object} [option] The options we want to pass to "fetch"
  * @return {object}           An object containing either "data" or "err"
  */
+
+const adminUrl = 'http://localhost:18083';
 export default function request(url, option) {
   const options = {
     expirys: isAntdPro(),
@@ -103,6 +105,9 @@ export default function request(url, option) {
    * Produce fingerprints based on url and parameters
    * Maybe url has the same parameters
    */
+  if (url.indexOf('admin') != -1) {
+    url = adminUrl + url;
+  }
   const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
   const hashcode = hash
     .sha256()
@@ -134,11 +139,11 @@ export default function request(url, option) {
       };
     }
   }
-
+  console.log(newOptions);
   // 将登陆的 accessToken 放到 header
   const loginToken = getLoginToken();
-  if (loginToken && loginToken.accessToken
-    && url.indexOf('/passport/login') === -1) { // TODO 芋艿，临时这么加，可能不是很优雅
+  if (loginToken && loginToken.accessToken && url.indexOf('/passport/login') === -1) {
+    // TODO 芋艿，临时这么加，可能不是很优雅
     const headers = {
       ...newOptions.headers,
       Authorization: `Bearer ${loginToken.accessToken}`,
@@ -161,8 +166,10 @@ export default function request(url, option) {
       sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
   }
+
   return fetch(url, newOptions)
     .then(checkStatus)
+    .then(res => console.log(res))
     .then(response => cachedSave(response, hashcode))
     .then(response => {
       // DELETE and 204 do not return data by default
