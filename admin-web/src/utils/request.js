@@ -105,9 +105,9 @@ export default function request(url, option) {
    * Produce fingerprints based on url and parameters
    * Maybe url has the same parameters
    */
-  if (url.indexOf('admin') != -1) {
-    url = adminUrl + url;
-  }
+  // if (url.indexOf('admin') != -1) {
+  //   url = adminUrl + url;
+  // }
   const fingerprint = url + (options.body ? JSON.stringify(options.body) : '');
   const hashcode = hash
     .sha256()
@@ -166,6 +166,7 @@ export default function request(url, option) {
       sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
   }
+  console.log('url is : ' + url);
 
   return fetch(url, newOptions)
     .then(checkStatus)
