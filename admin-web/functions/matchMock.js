@@ -107,6 +107,7 @@ function matchMock(req) {
 }
 module.exports = (req, res, next) => {
   const match = matchMock(req);
+  console.log("I don't know is match " + match);
   if (match) {
     debug(`mock matched: [${match.method}] ${match.path}`);
     return match.handler(req, res, next);
