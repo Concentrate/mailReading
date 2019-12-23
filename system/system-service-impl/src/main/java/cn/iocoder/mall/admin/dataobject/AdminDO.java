@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 /**
  * 管理员实体
  */
-@TableName(value = "admin")
+@TableName(value = "`admin`")
 @Data
 @Accessors(chain = true)
 public class AdminDO extends DeletableDO {

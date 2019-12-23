@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 /**
  * 角色实体
  */
-@TableName("role")
+@TableName("`role`")
 @Data
 @Accessors(chain = true)
 public class RoleDO extends DeletableDO {
