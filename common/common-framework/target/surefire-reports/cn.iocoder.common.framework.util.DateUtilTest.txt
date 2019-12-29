@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: cn.iocoder.common.framework.util.DateUtilTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.056 s <<< FAILURE! - in cn.iocoder.common.framework.util.DateUtilTest
+testAddDate(cn.iocoder.common.framework.util.DateUtilTest)  Time elapsed: 0.02 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Sun May 10 19:00:00 CST 2026> but was:<Sun May 10 20:00:00 CST 2026>
+	at cn.iocoder.common.framework.util.DateUtilTest.testAddDate(DateUtilTest.java:13)
+
+testFormat(cn.iocoder.common.framework.util.DateUtilTest)  Time elapsed: 0.003 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<2018-01-10:[12]:00:00> but was:<2018-01-10:[20]:00:00>
+	at cn.iocoder.common.framework.util.DateUtilTest.testFormat(DateUtilTest.java:20)
+
+testGetDayBegin(cn.iocoder.common.framework.util.DateUtilTest)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Wed Jan 10 08:00:00 CST 2018> but was:<Wed Jan 10 00:00:00 CST 2018>
+	at cn.iocoder.common.framework.util.DateUtilTest.testGetDayBegin(DateUtilTest.java:27)
+
+testGetDayEnd(cn.iocoder.common.framework.util.DateUtilTest)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Thu Jan 11 07:59:59 CST 2018> but was:<Wed Jan 10 23:59:59 CST 2018>
+	at cn.iocoder.common.framework.util.DateUtilTest.testGetDayEnd(DateUtilTest.java:34)
+

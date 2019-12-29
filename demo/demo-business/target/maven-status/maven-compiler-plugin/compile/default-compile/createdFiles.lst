@@ -1,0 +1,8 @@
+cn/iocoder/mall/demo/business/convert/DemoProductConvert.class
+cn/iocoder/mall/demo/business/dataobject/product/DemoProductDO.class
+cn/iocoder/mall/demo/business/dao/DemoProductMapper.class
+cn/iocoder/mall/demo/business/dataobject/order/DemoOrderDO.class
+cn/iocoder/mall/demo/business/config/DatabaseConfiguration.class
+cn/iocoder/mall/demo/business/service/DemoProductServiceImpl.class
+cn/iocoder/mall/demo/business/convert/DemoProductConvertImpl.class
+cn/iocoder/mall/demo/business/service/DemoOrderServiceImpl.class

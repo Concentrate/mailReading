@@ -1,0 +1,5 @@
+cn/iocoder/mall/demo/application/DemoApplication.class
+cn/iocoder/mall/demo/application/controller/DemoProductController.class
+cn/iocoder/mall/demo/application/convert/DemoProductConvert.class
+cn/iocoder/mall/demo/application/vo/DemoProductVO.class
+cn/iocoder/mall/demo/application/convert/DemoProductConvertImpl.class

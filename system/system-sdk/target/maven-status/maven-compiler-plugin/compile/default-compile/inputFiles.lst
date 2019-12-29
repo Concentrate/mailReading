@@ -1,0 +1,7 @@
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/package-info.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/interceptor/AdminDemoInterceptor.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/interceptor/AdminSecurityInterceptor.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/annotation/RequiresPermissions.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/context/AdminSecurityContextHolder.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/constant/LogicalEnum.java
+/Users/liudeyu/IdeaProjects/onemall/system/system-sdk/src/main/java/cn/iocoder/mall/admin/sdk/context/AdminSecurityContext.java
