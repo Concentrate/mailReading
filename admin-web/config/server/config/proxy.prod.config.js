@@ -2,32 +2,32 @@
 
 module.exports = {
   '/admin-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },
   '/product-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },
   '/order-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },
   '/promotion-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },
   '/pay-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },
   '/user-api/': {
-    target: 'http://api.shop.iocoder.cn:18099',
+    target: 'http://www.ldybalance.site:18099',
     changeOrigin: true,
     pathRewrite: {},
   },

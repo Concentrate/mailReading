@@ -1,5 +1,5 @@
 module.exports = {
-  '/admin-api -> http://180.167.213.26:18083/': {
+  '/admin-api -> http://www.ldybalance.site:18083/': {
     changeOrigin: true,
     pathRewrite: {},
   },

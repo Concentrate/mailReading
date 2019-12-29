@@ -37,27 +37,27 @@ const serviceRouter = function(requestUrl) {
     const configProd = {
       '/order-api': {
         prefix: '/order-api',
-        target: 'http://api.shop.iocoder.cn:18088/order-api',
+        target: 'http://www.ldybalance.site:18088/order-api',
       },
       '/user-api': {
         prefix: '/user-api',
-        target: 'http://api.shop.iocoder.cn:18099/user-api',
+        target: 'http://www.ldybalance.site:18099/user-api',
       },
       '/product-api': {
         prefix: '/product-api',
-        target: 'http://api.shop.iocoder.cn:18099/product-api',
+        target: 'http://www.ldybalance.site:18099/product-api',
       },
       '/promotion-api': {
         prefix: '/promotion-api',
-        target: 'http://api.shop.iocoder.cn:18099/promotion-api',
+        target: 'http://www.ldybalance.site:18099/promotion-api',
       },
       '/pay-api': {
         prefix: '/pay-api',
-        target: 'http://api.shop.iocoder.cn:18099/pay-api',
+        target: 'http://www.ldybalance.site:18099/pay-api',
       },
       '/search-api': {
         prefix: '/search-api',
-        target: 'http://api.shop.iocoder.cn:18099/search-api',
+        target: 'http://www.ldybalance.site:18099/search-api',
       },
     };
 
