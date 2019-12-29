@@ -80,6 +80,13 @@
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
+        <!-- replace here with the latest version -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-core</artifactId>
+            <version>1.7.1</version>
+        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>

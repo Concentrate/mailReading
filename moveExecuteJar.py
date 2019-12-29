@@ -12,11 +12,13 @@ def mkdirIfNot(tmp):
     if not os.path.exists(tmp):
         os.mkdir(tmp)
 
+
 if __name__=="__main__":
     ret1=os.popen(findApplication)
     #print(*ret1)
+    shutil.rmtree(executeDir)
     startCmd="java -jar {0}>> {1} &"
-    mkdirIfNot(logDir)
+    mkdirIfNot(executeDir)
     startAppList=['system','user','product','pay','promotion','order','search']
     readlines=ret1.readlines()
     startFiles=[]
@@ -29,10 +31,9 @@ if __name__=="__main__":
                 startFiles.append(c1)
 
     print(startFiles)
-    for tmp in startFiles:
-        logName=logDir+os.sep+tmp[tmp.rfind('/')+1:tmp.find('.jar')]+".log"
-        realCmd=startCmd.format(tmp,logName)
-        print(realCmd)
-        os.system(realCmd)
-
-
+    for aFile in startFiles:
+        target=executeDir+os.sep+aFile[aFile.rfind('/'):]
+        #print(target)
+        shutil.copy(aFile,target)
+        print('copy to {0},exists {1}'.format(target,os.path.exists(target)))
+  

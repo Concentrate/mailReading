@@ -21,15 +21,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class OrderMapperTest {
 
-    @Autowired
-    private OrderMapper orderMapper;
-
-    @Test
-    public void updateByIdTest() {
-        int id = 47;
+//    @Autowired
+//    private OrderMapper orderMapper;
+//
+//    @Test
+//    public void updateByIdTest() {
+//        int id = 47;
 //        int updateStatus = 99;
 //        int res = orderMapper.update(new OrderDO().setStatus(id), new UpdateWrapper<OrderDO>().eq("id", updateStatus));
-        OrderDO orderDO = orderMapper.selectById(id);
+//        OrderDO orderDO = orderMapper.selectById(id);
 //        Assert.assertTrue(orderDO.getStatus() == updateStatus);
-    }
+//    }
 }
