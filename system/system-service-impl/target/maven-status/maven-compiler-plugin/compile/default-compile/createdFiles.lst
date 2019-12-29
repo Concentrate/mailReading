@@ -1,9 +1,0 @@
-cn/iocoder/mall/admin/convert/SmsTemplateConvertImpl.class
-cn/iocoder/mall/admin/convert/OAuth2ConvertImpl.class
-cn/iocoder/mall/admin/convert/DeptmentConvertImpl.class
-cn/iocoder/mall/admin/convert/ResourceConvertImpl.class
-cn/iocoder/mall/admin/convert/DataDictConvertImpl.class
-cn/iocoder/mall/admin/convert/SmsSignConvertImpl.class
-cn/iocoder/mall/admin/convert/AccessLogConvertImpl.class
-cn/iocoder/mall/admin/convert/RoleConvertImpl.class
-cn/iocoder/mall/admin/convert/AdminConvertImpl.class

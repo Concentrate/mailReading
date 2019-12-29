@@ -1,4 +1,0 @@
-cn/iocoder/mall/user/sdk/annotation/RequiresLogin.class
-cn/iocoder/mall/user/sdk/context/UserSecurityContext.class
-cn/iocoder/mall/user/sdk/interceptor/UserSecurityInterceptor.class
-cn/iocoder/mall/user/sdk/context/UserSecurityContextHolder.class

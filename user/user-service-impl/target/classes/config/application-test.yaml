@@ -1,7 +1,0 @@
-spring:
-  # datasource
-  datasource:
-    url: jdbc:mysql://localhost:3306/mall_user?useSSL=false&useUnicode=true&characterEncoding=UTF-8
-    driver-class-name: com.mysql.jdbc.Driver
-    username: ldy
-    password: abcd1234
