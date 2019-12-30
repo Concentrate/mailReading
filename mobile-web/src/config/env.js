@@ -15,13 +15,13 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'development') {
 	baseUrl='http://127.0.0.1';
 	dataSources="local"
 }else if(process.env.NODE_ENV == 'production'){
-	baseUrl = 'http://180.167.213.26:18099';
+	baseUrl = 'http://www.ldybalance.site:18099';
     dataSources='production';
 }
 
-// baseUrl = 'http://127.0.0.1';
-// baseUrl = 'http://180.167.213.26:18099';
-//dataSources = 'remote';
+baseUrl = 'http://127.0.0.1';
+// baseUrl = 'http://www.ldybalance.site:18099';
+dataSources = 'local';
 // dataSources = 'remote';
 
 export {
