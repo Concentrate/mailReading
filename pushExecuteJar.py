@@ -7,13 +7,24 @@ import shutil
 findApplication="find . -name '*.jar'|grep .*application.*"
 logDir="logDir"
 executeDir="executeDir"
+mvnPackage="mvn package mvn package -Dmaven.test.skip=true"
+pushToYun="python3 ~/myScripts/yun/push_to_yun.py {0}"
 
 def mkdirIfNot(tmp):
     if not os.path.exists(tmp):
         os.mkdir(tmp)
+def mvnPackage():
+    ret1=os.popen(mvnPackage)
+    for line in ret1.readlines():
+        print(line)
 
+def pushFile():
+    ret1=os.popen(pushToYun)
+    for line in ret1.readlines():
+        print(line)
 
 if __name__=="__main__":
+    mvnPackage()
     ret1=os.popen(findApplication)
     #print(*ret1)
     shutil.rmtree(executeDir)
@@ -36,4 +47,4 @@ if __name__=="__main__":
         #print(target)
         shutil.copy(aFile,target)
         print('copy to {0},exists {1}'.format(target,os.path.exists(target)))
-  
+    pushFile()

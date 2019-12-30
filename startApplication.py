@@ -3,6 +3,7 @@
 import os
 import subprocess
 import shutil
+import time
 
 findApplication="find . -name '*.jar'|grep .*application.*"
 logDir="logDir"
@@ -34,5 +35,8 @@ if __name__=="__main__":
         realCmd=startCmd.format(tmp,logName)
         print(realCmd)
         os.system(realCmd)
+        print("start to sleep,then execute next jar")
+        SLEEP_TIME = 20
+        time.sleep(SLEEP_TIME)
 
 
