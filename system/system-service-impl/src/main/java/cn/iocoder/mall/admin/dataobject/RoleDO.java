@@ -13,6 +13,11 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class RoleDO extends DeletableDO {
 
+    public static class RoleDoConstants{
+        public static final String NORMAL_ADMIN = "nomal";
+        public static final String SUPER_ADMIN = "super";
+    }
+
     /**
      * 角色编号
      */

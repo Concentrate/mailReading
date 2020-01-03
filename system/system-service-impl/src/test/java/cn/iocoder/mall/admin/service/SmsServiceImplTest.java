@@ -7,10 +7,10 @@ import cn.iocoder.mall.admin.api.bo.sms.SmsSignBO;
 import cn.iocoder.mall.admin.api.constant.SmsPlatformEnum;
 import cn.iocoder.mall.admin.api.constant.SmsTypeEnum;
 import com.google.common.collect.ImmutableMap;
+import org.assertj.core.api.Assertions;
 import org.assertj.core.util.Lists;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,13 +50,6 @@ public class SmsServiceImplTest {
         Assert.assertTrue("更新不成功!", smsSignBO.getSign().equals(newSign));
     }
 
-    @Test
-    public void deletedSignTest() {
-        smsService.deleteSign(3);
-        Assertions.assertThrows(ServiceException.class, () -> {
-            smsService.getSign(3);
-        });
-    }
 
     @Test
     public void createTemplateTest() {

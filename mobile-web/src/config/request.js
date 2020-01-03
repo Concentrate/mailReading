@@ -116,17 +116,17 @@ const service = axios.create({
 
 const servicef = function (parameter) {
   // debugger;
-  if (dataSources == 'local') {
-    //定义回调函数和axios一致
-    const promist = new Promise(function (resolve, reject) {
-      var data = datas[parameter.url];
-      if (typeof data == 'string') {
-        data = JSON.parse(data);
-      }
-      resolve(data);
-    });
-    return promist;
-  }
+  // if (dataSources == 'local') {
+  //   //定义回调函数和axios一致
+  //   const promist = new Promise(function (resolve, reject) {
+  //     var data = datas[parameter.url];
+  //     if (typeof data == 'string') {
+  //       data = JSON.parse(data);
+  //     }
+  //     resolve(data);
+  //   });
+  //   return promist;
+  // }
   // 设置 access token
   // debugger;
   // if (getAccessToken()) {
