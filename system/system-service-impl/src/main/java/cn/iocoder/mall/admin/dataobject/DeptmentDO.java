@@ -17,6 +17,15 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class DeptmentDO extends DeletableDO {
 
+
+
+    public static final int ROOT_DEPAR = -1;
+    public static final int CEO_DEPAR = 0;
+    public static final int CREATE_SERVICE_DEPARMENT = 1;
+    public static final int PROMOTE_DEPAR = 2;
+    public static final int IT_DEPAR = 3;
+    public static final int SELL_DEPAR = 4;
+
     /**
      * 部门编号
      */
