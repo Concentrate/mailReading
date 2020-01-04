@@ -1,0 +1,55 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
+--
+-- Host: 127.0.0.1    Database: mall_admin
+-- ------------------------------------------------------
+-- Server version	8.0.0-dmr
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `admin_role`
+--
+
+DROP TABLE IF EXISTS `admin_role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin_role` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
+  `admin_id` int(11) NOT NULL COMMENT '管理员编号(外键：{@link AdminDO}',
+  `role_id` int(11) NOT NULL COMMENT '角色编号(外键：{@link RoleDO}',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `update_time` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `deleted` bit(1) DEFAULT b'0' COMMENT '是否删除',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COMMENT='admin_role_d_o';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `admin_role`
+--
+
+LOCK TABLES `admin_role` WRITE;
+/*!40000 ALTER TABLE `admin_role` DISABLE KEYS */;
+INSERT INTO `admin_role` VALUES (40,28,8,'2020-01-03 13:20:23','2020-01-03 16:18:22','\0'),(41,28,8,'2020-01-03 16:13:17','2020-01-03 16:18:22','\0'),(42,28,9,'2020-01-03 16:13:32','2020-01-03 16:13:31','\0'),(43,30,8,'2020-01-03 16:21:17','2020-01-03 16:21:16','\0'),(44,29,9,'2020-01-03 16:21:21','2020-01-03 16:21:20','\0');
+/*!40000 ALTER TABLE `admin_role` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-01-03 18:47:39

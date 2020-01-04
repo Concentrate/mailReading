@@ -1,6 +1,7 @@
 package cn.iocoder.mall.product.dataobject;
 
 import cn.iocoder.common.framework.dataobject.DeletableDO;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,6 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@TableName("product_attr")
 public class ProductAttrDO extends DeletableDO {
 
     /**

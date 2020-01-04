@@ -1,0 +1,28 @@
+
+> ant-design-pro@2.2.1 start:admin-web:no-mock /home/liudeyu/project/mailReading/admin-web
+> cross-env BASE_PATH='/admin-web/' NODE_ENV=development MOCK=none APP_TYPE=site umi dev
+
+🚀 Starting Umi UI using umi@2.12.6...
+fs.js:646
+  return binding.open(pathModule._makeLong(path), stringToFlags(flags), mode);
+                 ^
+
+Error: EACCES: permission denied, open '/home/liudeyu/project/mailReading/admin-web/node_modules/.cache/@babel/register/.babel.7.7.5.development.json'
+    at Object.fs.openSync (fs.js:646:18)
+    at Object.fs.writeFileSync (fs.js:1299:33)
+    at save (/home/liudeyu/project/mailReading/admin-web/node_modules/umi-core/node_modules/@babel/register/lib/cache.js:52:15)
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9)
+    at Function.Module.runMain (module.js:695:11)
+    at startup (bootstrap_node.js:188:16)
+    at bootstrap_node.js:609:3
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! ant-design-pro@2.2.1 start:admin-web:no-mock: `cross-env BASE_PATH='/admin-web/' NODE_ENV=development MOCK=none APP_TYPE=site umi dev`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the ant-design-pro@2.2.1 start:admin-web:no-mock script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/liudeyu/.npm/_logs/2020-01-04T03_06_49_579Z-debug.log

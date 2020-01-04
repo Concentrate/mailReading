@@ -1,5 +1,6 @@
 package cn.iocoder.mall.product.dataobject;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 @Deprecated // TODO 芋艿，咱暂时不加库存表和库存服务
 @Data
 @Accessors(chain = true)
+@TableName("product_stock")
 public class ProductStockDO {
 
     /**

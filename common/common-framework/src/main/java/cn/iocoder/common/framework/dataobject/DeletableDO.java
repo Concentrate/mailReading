@@ -14,7 +14,7 @@ public class DeletableDO extends BaseDO {
      * 是否删除
      */
     @TableLogic
-    private Integer deleted;
+    private Integer deleted=0;
 
     @Override
     public String toString() {

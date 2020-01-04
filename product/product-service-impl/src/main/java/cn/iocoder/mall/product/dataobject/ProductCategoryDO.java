@@ -1,6 +1,7 @@
 package cn.iocoder.mall.product.dataobject;
 
 import cn.iocoder.common.framework.dataobject.DeletableDO;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,6 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@TableName("product_category")
 public class ProductCategoryDO extends DeletableDO {
 
     /**
@@ -20,7 +22,7 @@ public class ProductCategoryDO extends DeletableDO {
      *
      * 如果不存在父级，则 pid = 0 。
      */
-    private Integer pid;
+    private Integer pid=0;
     /**
      * 名称
      */
@@ -43,6 +45,6 @@ public class ProductCategoryDO extends DeletableDO {
      * 1-开启
      * 2-关闭
      */
-    private Integer status;
+    private Integer status=1;
 
 }
