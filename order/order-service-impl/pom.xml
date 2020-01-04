@@ -84,6 +84,9 @@
             <groupId>io.seata</groupId>
             <artifactId>seata-dubbo</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.seata/seata-all -->
+
+
 
         <!-- RPC 相关 -->
         <dependency>

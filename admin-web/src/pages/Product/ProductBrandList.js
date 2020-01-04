@@ -164,7 +164,7 @@ function List({ dataSource, loading, pagination, searchParams, dispatch,
   okText={okText}
   onCancel={() => handleModalVisible()}
 >
-<Spin spinning={loading}>
+{/*<Spin spinning={loading}>*/}
     <FormItem labelCol={{ span: 5 }} wrapperCol={{ span: 15 }} label="品牌名称">
     {form.getFieldDecorator('name', {
       rules: [{ required: true, message: '请输入品牌名称！', min: 2 }],
@@ -178,7 +178,7 @@ function List({ dataSource, loading, pagination, searchParams, dispatch,
       initialValue: formVals.description,
     })(<Input.TextArea placeholder="请输入" />)}
 </FormItem>
-  </Spin>
+  {/*</Spin>*/}
   </Modal>
 );
 });

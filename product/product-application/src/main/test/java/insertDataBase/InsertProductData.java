@@ -4,7 +4,9 @@ package insertDataBase;
 import cn.iocoder.mall.product.api.constant.ProductAttrConstants;
 import cn.iocoder.mall.product.api.constant.ProductCategoryConstants;
 import cn.iocoder.mall.product.dao.ProductAttrMapper;
+import cn.iocoder.mall.product.dao.ProductBrandMapper;
 import cn.iocoder.mall.product.dao.ProductCategoryMapper;
+import cn.iocoder.mall.product.dataobject.ProductBrandDO;
 import cn.iocoder.mall.product.dataobject.ProductCategoryDO;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.Before;
@@ -25,6 +27,9 @@ public class InsertProductData extends BaseTest {
 
     @Autowired
     ProductCategoryMapper categoryMapper;
+
+    @Autowired
+    ProductBrandMapper brandMapper;
 
 
     Map<String, List<ProductCategoryDO>> parentCatrMap = new HashMap<>();
@@ -60,6 +65,17 @@ public class InsertProductData extends BaseTest {
                 }
             });
         });
+    }
+
+    @Test
+    public void insertBrand(){
+        if(brandMapper.selectByName("google")==null){
+            brandMapper.insert(new ProductBrandDO().setName("google")
+            .setDescription("the most powerful search engine company in the world")
+            .setPicUrl("https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"));
+
+
+        }
     }
 
 

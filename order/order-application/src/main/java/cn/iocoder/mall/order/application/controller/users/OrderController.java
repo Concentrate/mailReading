@@ -45,7 +45,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 @Api(description = "用户订单") // TODO FROM 芋艿 to 小范，description 已经废弃啦
 public class OrderController {
 
-    @Reference(validation = "true", version = "${dubbo.provider.OrderReturnService.version}")
+    @Reference(validation = "true", version = "${dubbo.provider.OrderService.version}")
     private OrderService orderService;
 
     @Reference(validation = "true", version = "${dubbo.provider.CartService.version}")

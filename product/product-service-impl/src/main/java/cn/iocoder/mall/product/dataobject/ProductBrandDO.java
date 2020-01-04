@@ -38,6 +38,6 @@ public class ProductBrandDO extends DeletableDO {
      * 1-开启
      * 2-禁用
      */
-    private Integer status;
+    private Integer status=1;
 
 }
