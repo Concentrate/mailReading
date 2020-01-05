@@ -18,6 +18,8 @@ import cn.iocoder.mall.product.dataobject.ProductCategoryDO;
 import cn.iocoder.mall.product.dataobject.ProductSkuDO;
 import cn.iocoder.mall.product.dataobject.ProductSpuDO;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,6 +32,9 @@ import java.util.stream.Collectors;
 @Service // 实际上不用添加。添加的原因是，必须 Spring 报错提示
 @org.apache.dubbo.config.annotation.Service(validation = "true", version = "${dubbo.provider.ProductSpuService.version}")
 public class ProductSpuServiceImpl implements ProductSpuService {
+
+
+    Logger logger= LoggerFactory.getLogger("ProductSpuServiceImpl");
 
     @Autowired
     private ProductSpuMapper productSpuMapper;
@@ -90,7 +95,12 @@ public class ProductSpuServiceImpl implements ProductSpuService {
         ProductSpuDetailBO productSpuDetailBO = addProductSpu0(adminId, productSpuAddDTO);
         // 如果新增生成，发送创建商品 Topic 消息
         // TODO 芋艿，先不考虑事务的问题。等后面的 fescar 一起搞
-        sendProductUpdateMessage(productSpuDetailBO.getId());
+        try {
+            sendProductUpdateMessage(productSpuDetailBO.getId());
+        }catch (Exception e){
+            e.printStackTrace();
+            logger.debug("error on rocketmq,create topic,晚点再弄");
+        }
         // 返回成功
         return productSpuDetailBO;
     }
@@ -244,7 +254,10 @@ public class ProductSpuServiceImpl implements ProductSpuService {
 
     @Override
     public List<ProductSpuBO> getProductSpuList(Collection<Integer> ids) {
-        List<ProductSpuDO> spus = productSpuMapper.selectByIds(ids);
+        List<ProductSpuDO> spus = new ArrayList<>();
+        if(!CollectionUtil.isEmpty(ids)){
+            spus=productSpuMapper.selectByIds(ids);
+        }
         return ProductSpuConvert.INSTANCE.convert(spus);
     }
 
