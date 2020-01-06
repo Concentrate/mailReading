@@ -63,8 +63,7 @@ spring:
 dubbo:
   application:
     name: product-service
-  registry:
-    address: zookeeper://127.0.0.1:2181 # 请修改成你本地的 Zookeeper url
+  registry:    address: zookeeper://127.0.0.1:2181  config-center:    address: zookeeper://127.0.0.1:2181  metadata-report:    address: zookeeper://127.0.0.1:2181 # 请修改成你本地的 Zookeeper url
   protocol:
     port: -1
     name: dubbo
