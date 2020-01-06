@@ -1,6 +1,8 @@
 package cn.iocoder.mall.pay.biz.dataobject;
 
+import cn.iocoder.common.framework.dataobject.BaseDO;
 import cn.iocoder.common.framework.dataobject.DeletableDO;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,7 +11,8 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class PayAppDO extends DeletableDO {
+@TableName("app")
+public class PayAppDO extends BaseDO {
 
     /**
      * 应用编号

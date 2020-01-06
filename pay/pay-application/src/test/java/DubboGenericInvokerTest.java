@@ -3,6 +3,8 @@ import org.apache.dubbo.config.ReferenceConfig;
 import org.apache.dubbo.config.RegistryConfig;
 import org.apache.dubbo.rpc.service.GenericService;
 
+
+
 public class DubboGenericInvokerTest {
 
     public static void main(String[] args) {

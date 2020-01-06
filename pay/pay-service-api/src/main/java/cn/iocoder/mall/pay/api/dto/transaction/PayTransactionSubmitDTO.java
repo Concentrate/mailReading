@@ -9,11 +9,12 @@ import lombok.experimental.Accessors;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @ApiModel("支付交易提交 DTO")
 @Data
 @Accessors(chain = true)
-public class PayTransactionSubmitDTO {
+public class PayTransactionSubmitDTO implements Serializable{
 
     @ApiModelProperty(value = "应用编号", required = true, example = "POd4RC6a")
     @NotEmpty(message = "应用编号不能为空")

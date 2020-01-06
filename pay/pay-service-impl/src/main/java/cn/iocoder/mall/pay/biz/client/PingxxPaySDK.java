@@ -20,8 +20,8 @@ import java.util.Map;
 public class PingxxPaySDK extends AbstractPaySDK {
 
     static {
-        Pingpp.privateKeyPath = "/Users/yunai/Downloads/pingxx.pem";
-        Pingpp.apiKey = "sk_test_8a9SGSXLKqX1ennjX9DenvbT";
+        Pingpp.privateKeyPath = "";
+        Pingpp.apiKey = "";
     }
 
     @Override

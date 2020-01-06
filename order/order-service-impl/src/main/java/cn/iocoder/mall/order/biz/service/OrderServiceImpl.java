@@ -128,7 +128,7 @@ public class OrderServiceImpl implements OrderService {
             }
             return orderBO;
         }).collect(Collectors.toList());
-            return CommonResult.success(
+        return CommonResult.success(
                 new OrderPageBO()
                         .setTotal(totalCount)
                         .setOrders(result)
@@ -176,7 +176,6 @@ public class OrderServiceImpl implements OrderService {
                 .filter(o -> o.getOrderLogisticsId() != null)
                 .map(o -> o.getOrderLogisticsId())
                 .collect(Collectors.toSet());
-
 
 
         // 收件人信息
@@ -250,11 +249,11 @@ public class OrderServiceImpl implements OrderService {
             CalcOrderPriceBO.Item priceItem = priceItemMap.get(orderItemDO.getSkuId());
             Assert.notNull(priceItem, "商品计算价格为空");
             orderItemDO.setOriginPrice(priceItem.getOriginPrice())
-                .setBuyPrice(priceItem.getBuyPrice())
-                .setPresentPrice(priceItem.getPresentPrice())
-                .setBuyTotal(priceItem.getBuyTotal())
-                .setDiscountTotal(priceItem.getDiscountTotal())
-                .setPresentTotal(priceItem.getPresentTotal());
+                    .setBuyPrice(priceItem.getBuyPrice())
+                    .setPresentPrice(priceItem.getPresentPrice())
+                    .setBuyTotal(priceItem.getBuyTotal())
+                    .setDiscountTotal(priceItem.getDiscountTotal())
+                    .setPresentTotal(priceItem.getPresentTotal());
         }
 
         // 标记优惠劵已使用
@@ -360,17 +359,16 @@ public class OrderServiceImpl implements OrderService {
         // TODO sin 支付订单 orderSubject 暂时取第一个子订单商品信息
         String orderSubject = orderItems.get(0).getSkuName();
         Date expireTime = DateUtil.addDate(Calendar.MINUTE, PAY_EXPIRE_TIME);
-        return payTransactionService.createTransaction(
-                new PayTransactionCreateDTO()
-                        .setCreateIp(ip)
-                        .setAppId(PayAppId.APP_ID_SHOP_ORDER)
-                        .setOrderId(order.getId().toString())
-                        .setExpireTime(expireTime)
-                        .setPrice(order.getPresentPrice())
-                        .setOrderSubject(orderSubject)
-                        .setOrderMemo("测试备注") // TODO 芋艿，后面补充
-                        .setOrderDescription("测试描述") // TODO 芋艿，后面补充
-        );
+        PayTransactionCreateDTO dto = new PayTransactionCreateDTO()
+                .setCreateIp(ip)
+                .setAppId(PayAppId.APP_ID_SHOP_ORDER)
+                .setOrderId(order.getId().toString())
+                .setExpireTime(expireTime)
+                .setPrice(order.getPresentPrice())
+                .setOrderSubject(orderSubject)
+                .setOrderMemo("测试备注") // TODO 芋艿，后面补充
+                .setOrderDescription("测试描述"); // TODO 芋艿，后面补充
+        return payTransactionService.createTransaction(dto);
     }
 
     @Override // TODO 芋艿，需要确认下这个方法的用途。因为涉及修改价格和数量。
