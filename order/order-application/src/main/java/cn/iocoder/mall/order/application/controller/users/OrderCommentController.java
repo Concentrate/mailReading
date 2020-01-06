@@ -16,6 +16,7 @@ import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -35,9 +36,11 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class OrderCommentController {
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderCommentService.version}")
+    @Autowired
     private OrderCommentService orderCommentService;
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderCommentReplyService.version}")
+    @Autowired
     private OrderCommentReplyService orderCommentReplyService;
 
 

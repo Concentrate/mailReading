@@ -1,7 +1,6 @@
 package cn.iocoder.common.framework.dubbo;
 
 import cn.iocoder.common.framework.exception.ServiceException;
-import org.apache.dubbo.common.Constants;
 import org.apache.dubbo.common.extension.Activate;
 import org.apache.dubbo.common.logger.Logger;
 import org.apache.dubbo.common.logger.LoggerFactory;
@@ -18,7 +17,7 @@ import java.lang.reflect.Method;
  *
  * 主要目的是，一些全局性的异常，能够返回。因为，Dubbo Consumer 能够保证，一定会引入全局性的异常。
  */
-@Activate(group = Constants.PROVIDER)
+@Activate(group = {"provider"})
 public class DubboExceptionFilter implements Filter {
 
     private final Logger logger;
@@ -42,6 +41,8 @@ public class DubboExceptionFilter implements Filter {
             throw e;
         }
     }
+
+
 
     @Override
     public Result onResponse(Result result, Invoker<?> invoker, Invocation invocation) {
@@ -88,9 +89,10 @@ public class DubboExceptionFilter implements Filter {
                 if (exception instanceof RpcException) {
                     return result;
                 }
-
+                com.alibaba.dubbo.rpc.Result.CompatibleResult result1= new com.alibaba.dubbo.rpc.Result.CompatibleResult(result);
+                result1.setException(new RuntimeException(StringUtils.toString(exception)));
                 // otherwise, wrap with RuntimeException and throw back to the client
-                return new RpcResult(new RuntimeException(StringUtils.toString(exception)));
+                return result1;
             } catch (Throwable e) {
                 logger.warn("Fail to ExceptionFilter when called by " + RpcContext.getContext().getRemoteHost()
                         + ". service: " + invoker.getInterface().getName() + ", method: " + invocation.getMethodName()

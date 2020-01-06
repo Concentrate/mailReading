@@ -15,6 +15,7 @@ import cn.iocoder.mall.promotion.api.CouponService;
 import cn.iocoder.mall.promotion.api.bo.CouponCardAvailableBO;
 import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,9 +30,11 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class UsersCartController {
 
     @Reference(validation = "true", version = "${dubbo.provider.CartService.version}")
+    @Autowired
     private CartService cartService;
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderService.version}")
+    @Autowired
     private OrderService orderService;
 
     @Reference(validation = "true", version = "${dubbo.consumer.CouponService.version}")

@@ -11,6 +11,7 @@ import cn.iocoder.mall.order.application.convert.OrderReturnConvert;
 import cn.iocoder.mall.order.application.po.user.OrderReturnApplyPO;
 import org.apache.dubbo.config.annotation.Reference;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +27,7 @@ import java.util.List;
 public class OrderReturnController {
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderReturnService.version}")
+    @Autowired
     private OrderReturnService orderReturnService;
 
     @Reference(validation = "true", version = "${dubbo.consumer.DataDictService.version}")

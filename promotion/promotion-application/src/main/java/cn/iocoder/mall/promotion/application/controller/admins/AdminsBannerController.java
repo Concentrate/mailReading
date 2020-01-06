@@ -15,6 +15,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
@@ -25,6 +27,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class AdminsBannerController {
 
     @Reference(validation = "true", version = "${dubbo.provider.BannerService.version}")
+    @Autowired
     private BannerService bannerService;
 
     @GetMapping("/page")

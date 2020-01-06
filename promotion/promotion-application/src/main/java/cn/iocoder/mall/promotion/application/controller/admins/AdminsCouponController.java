@@ -17,6 +17,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,6 +31,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class AdminsCouponController {
 
     @Reference(validation = "true", version = "${dubbo.provider.CouponService.version}")
+    @Autowired
     private CouponService couponService;
 
     // ========== 优惠劵（码）模板 ==========

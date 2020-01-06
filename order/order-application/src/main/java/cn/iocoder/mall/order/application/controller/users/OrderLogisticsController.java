@@ -13,6 +13,7 @@ import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
 import org.apache.dubbo.config.annotation.Reference;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,7 @@ import java.util.stream.Collectors;
 public class OrderLogisticsController {
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderLogisticsService.version}")
+    @Autowired
     private OrderLogisticsService orderLogisticsService;
 
     @Reference(validation = "true", version = "${dubbo.consumer.DataDictService.version}")

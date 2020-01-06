@@ -7,6 +7,7 @@ import cn.iocoder.mall.promotion.api.constant.PromotionActivityStatusEnum;
 import cn.iocoder.mall.promotion.api.dto.PromotionActivityPageDTO;
 import io.swagger.annotations.Api;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +24,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class AdminsPromotionActivityController {
 
     @Reference(validation = "true", version = "${dubbo.provider.PromotionActivityService.version}")
+    @Autowired
     private PromotionActivityService promotionActivityService;
 
     @GetMapping("/page") // TODO 芋艿，BO => VO

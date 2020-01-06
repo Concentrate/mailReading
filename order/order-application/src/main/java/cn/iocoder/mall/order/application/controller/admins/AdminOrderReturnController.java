@@ -9,6 +9,7 @@ import cn.iocoder.mall.order.application.convert.OrderReturnConvert;
 import cn.iocoder.mall.order.application.po.admin.OrderReturnQueryPO;
 import io.swagger.annotations.Api;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminOrderReturnController {
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderReturnService.version}")
+    @Autowired
     private OrderReturnService orderReturnService;
 
     @GetMapping("list")

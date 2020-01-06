@@ -10,6 +10,7 @@ import cn.iocoder.mall.order.api.dto.OrderCommentReplyPageDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,6 +30,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class OrderCommentReplyController {
 
     @Reference(validation = "true", version = "${dubbo.provider.OrderCommentService.version}")
+    @Autowired
     private OrderCommentReplyService orderCommentReplyService;
 
     @PostMapping("create_order_comment_reply")
