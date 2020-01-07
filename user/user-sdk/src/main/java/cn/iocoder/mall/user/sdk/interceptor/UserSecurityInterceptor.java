@@ -2,6 +2,7 @@ package cn.iocoder.mall.user.sdk.interceptor;
 
 import cn.iocoder.common.framework.constant.UserTypeEnum;
 import cn.iocoder.common.framework.exception.ServiceException;
+import cn.iocoder.common.framework.util.DateUtil;
 import cn.iocoder.common.framework.util.HttpUtil;
 import cn.iocoder.common.framework.util.MallUtil;
 import cn.iocoder.common.framework.util.StringUtil;
@@ -13,12 +14,16 @@ import cn.iocoder.mall.user.sdk.annotation.RequiresLogin;
 import cn.iocoder.mall.user.sdk.context.UserSecurityContext;
 import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
 import org.apache.dubbo.config.annotation.Reference;
+import org.slf4j.LoggerFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.logging.Logger;
 
 /**
  * User 安全拦截器
@@ -26,12 +31,17 @@ import javax.servlet.http.HttpServletResponse;
 @Component
 public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
 
+
+    org.slf4j.Logger logger= LoggerFactory.getLogger("UserSecurityInterceptor");
+
     @Reference(validation = "true", version = "${dubbo.consumer.OAuth2Service.version:1.0.0}")
     private OAuth2Service oauth2Service;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 设置当前访问的用户类型。注意，即使未登陆，我们也认为是用户
+
+        logger.info("request prehandler start   "+ DateUtil.format(new Date(),"MMdd HH:mm:ss"));
         MallUtil.setUserType(request, UserTypeEnum.USER.getValue());
 
         // 根据 accessToken 获得认证信息，判断是谁
@@ -40,6 +50,7 @@ public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
         ServiceException serviceException = null;
         if (StringUtil.hasText(accessToken)) {
             try {
+                // 每次请求都查authen,没有nosql 缓存，压力会比较大
                 authentication = oauth2Service.getAuthentication(new OAuth2GetTokenDTO().setAccessToken(accessToken)
                         .setUserType(UserTypeEnum.USER.getValue()));
             } catch (ServiceException e) {
@@ -76,6 +87,7 @@ public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         // 清空 SecurityContext
+        logger.info("after completion,clear context holder");
         UserSecurityContextHolder.clear();
     }
 

@@ -23,7 +23,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 @RestController
 @RequestMapping("users/passport")
 @Api("Passport 模块")
-public class PassportController {
+public class  PassportController {
 
     @Reference(validation = "true", version = "${dubbo.consumer.OAuth2Service.version}")
     private OAuth2Service oauth2Service;
