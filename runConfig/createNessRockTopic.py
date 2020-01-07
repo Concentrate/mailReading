@@ -9,8 +9,5 @@ if __name__=="__main__":
         print(cmd)
         os.system(cmd)
     print("final topic list: ")
-    res=os.popen("{0}/mqadmin topicList".format(rocketmpBinDir))
-    for line in res.readlines():
-        print(line)
 
 

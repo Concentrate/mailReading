@@ -37,7 +37,7 @@ public class AdminsProductCategoryController {
     @ApiOperation("获得分类树结构")
     public CommonResult<List<AdminsProductCategoryTreeNodeVO>> tree() {
         List<ProductCategoryBO> productCategories = productCategoryService.getAll();
-        // 创建 ProductCategoryTreeNodeVO Map
+        // 创建 ProductCategoryTreeNodeVO Map,nubility,stream() opeartion
         Map<Integer, AdminsProductCategoryTreeNodeVO> treeNodeMap = productCategories.stream().collect(Collectors.toMap(ProductCategoryBO::getId, ProductCategoryConvert.Admins.INSTANCE::convert));
         // 处理父子关系
         treeNodeMap.values().stream()
