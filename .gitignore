@@ -5,6 +5,7 @@ target/
 executeDir/
 !.mvn/wrapper/maven-wrapper.jar
 
+*.out
 ### STS ###
 /target/
 .apt_generated

@@ -19,15 +19,17 @@ def mvnPackage():
         print(line)
 
 def pushFile():
-    ret1=os.popen(pushToYun)
+    print("start to push file to yun......,waiting")
+    ret1=os.popen(pushToYun.format(executeDir))
     for line in ret1.readlines():
         print(line)
 
 if __name__=="__main__":
-    mvnPackage()
+    #mvnPackage()
     ret1=os.popen(findApplication)
     #print(*ret1)
-    shutil.rmtree(executeDir)
+    if os.path.exists(executeDir):
+        shutil.rmtree(executeDir)
     startCmd="java -jar {0}>> {1} &"
     mkdirIfNot(executeDir)
     startAppList=['system','user','product','pay','promotion','order','search']
@@ -46,5 +48,5 @@ if __name__=="__main__":
         target=executeDir+os.sep+aFile[aFile.rfind('/'):]
         #print(target)
         shutil.copy(aFile,target)
-        print('copy to {0},exists {1}'.format(target,os.path.exists(target)))
+        print('copy to {0},is exists {1}'.format(target,os.path.exists(target)))
     pushFile()
