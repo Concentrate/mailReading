@@ -54,6 +54,7 @@ public class AccessLogInterceptor extends HandlerInterceptorAdapter {
             initAccessLog(accessLog, request);
             // 执行插入 accessLog
             addAccessLog(accessLog);
+            // 需要考虑nosql,或者kafka 来处理日志
             // TODO 提升：暂时不考虑 ELK 的方案。而是基于 MySQL 存储。如果访问日志比较多，需要定期归档。
         } catch (Throwable th) {
             logger.error("[afterCompletion][插入访问日志({}) 发生异常({})", JSON.toJSONString(accessLog), ExceptionUtils.getRootCauseMessage(th));
