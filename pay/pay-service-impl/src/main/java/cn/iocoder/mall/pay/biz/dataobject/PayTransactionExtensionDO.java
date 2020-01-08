@@ -1,6 +1,7 @@
 package cn.iocoder.mall.pay.biz.dataobject;
 
 import cn.iocoder.common.framework.dataobject.DeletableDO;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,6 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@TableName("transaction_extension")
 public class PayTransactionExtensionDO extends DeletableDO {
 
     /**

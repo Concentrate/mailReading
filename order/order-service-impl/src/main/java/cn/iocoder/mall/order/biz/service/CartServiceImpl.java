@@ -391,7 +391,7 @@ public class CartServiceImpl implements CartService {
             return presentPrice >= 0 ? presentPrice : sku.getPrice(); // 如果计算优惠价格小于 0 ，则说明无法使用优惠。
         }
         if (PreferentialTypeEnum.DISCOUNT.getValue().equals(item.getPreferentialType())) { // 打折
-            return sku.getPrice() * item.getPreferentialValue() / 100;
+            return (int)(sku.getPrice() * item.getPreferentialValue()*1.0f / 100);
         }
         throw new IllegalArgumentException(String.format("折扣活动(%s) 的优惠类型不正确", timeLimitedDiscount.toString()));
     }

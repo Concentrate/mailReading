@@ -54,7 +54,7 @@ public class PromotionActivityServiceImpl implements PromotionActivityService {
                     break;
                 }
             }
-            // 不匹配，则进行移除
+            // 不匹配，则进行移除, 这种iterator remove的操作，我怎么那么不认同，迭代时候删除元素，会有问题
             if (!matched) {
                 iterator.remove();
             } else { // 匹配，则做一些后续的处理

@@ -2,6 +2,7 @@ package cn.iocoder.mall.pay.biz.dataobject;
 
 import cn.iocoder.common.framework.dataobject.DeletableDO;
 import cn.iocoder.mall.pay.biz.service.PayTransactionServiceImpl;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,6 +15,7 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
+@TableName("notify_task")
 public class PayNotifyTaskDO extends DeletableDO {
 
     /**

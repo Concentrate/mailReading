@@ -1,6 +1,7 @@
 package cn.iocoder.mall.pay.biz.dataobject;
 
 import cn.iocoder.common.framework.dataobject.BaseDO;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -11,6 +12,7 @@ import java.util.Date;
  */
 @Data
 @Accessors(chain = true)
+@TableName("refund")
 public class PayRefundDO extends BaseDO {
 
     /**

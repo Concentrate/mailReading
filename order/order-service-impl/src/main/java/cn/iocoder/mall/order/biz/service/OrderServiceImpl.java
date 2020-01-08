@@ -324,7 +324,6 @@ public class OrderServiceImpl implements OrderService {
         orderItemMapper.insert(orderItemDOList);
 
         // 创建预订单
-        // 这里一直跑不过，pay service的rpc 调用失败，也没找到为什么
         createPayTransaction(orderDO, orderItemDOList, orderCreateDTO.getIp());
 
 //        if (commonResult.isError()) {

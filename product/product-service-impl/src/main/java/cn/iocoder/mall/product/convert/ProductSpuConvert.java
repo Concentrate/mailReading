@@ -101,6 +101,7 @@ public interface ProductSpuConvert {
         return spuDetail;
     }
 
+    // 原来这种convert ，是为了把外键踢出去，去除了orm的外键自动关联，没有外键，用convert做关联
     @Mappings({}) // TODO 芋艿，后续细看下 mapstruct 的 API ，优化这块
     default List<ProductSkuDetailBO> convert3(List<ProductSkuDO> skus, List<ProductSpuDO> spus, List<ProductAttrAndValuePairBO> productAttrDetailBOs) {
         // 创建 ProductAttrDetailBO 的映射。其中，KEY 为 ProductAttrDetailBO.attrValueId ，即规格值的编号
