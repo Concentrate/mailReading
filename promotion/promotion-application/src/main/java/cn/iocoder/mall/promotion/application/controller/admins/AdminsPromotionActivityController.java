@@ -29,8 +29,8 @@ public class AdminsPromotionActivityController {
 
     @GetMapping("/page") // TODO 芋艿，BO => VO
     public CommonResult<PromotionActivityPageBO> page(@RequestParam(value = "title", required = false) String title,
-                                                      @RequestParam(value = "activityType") Integer activityType,
-                                                      @RequestParam(value = "status") String status,
+                                                      @RequestParam(value = "activityType",required = false) Integer activityType,
+                                                      @RequestParam(value = "status",required = false,defaultValue = "") String status,
                                                       @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                                                       @RequestParam(value = "pageSize", defaultValue = "10") Integer pageSize) {
         PromotionActivityPageDTO promotionActivityPageDTO = new PromotionActivityPageDTO()

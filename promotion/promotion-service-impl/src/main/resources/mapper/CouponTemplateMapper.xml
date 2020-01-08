@@ -96,9 +96,7 @@
           #{title}, #{description}, #{type}, #{codeType},
           #{status}, #{quota}, #{total}, #{priceAvailable}, #{rangeType},
           #{rangeValues}, #{dateType}, #{validStartTime}, #{validEndTime}, #{fixedStartTerm}, #{fixedEndTerm}
-          #{preferentialType}, #{percentOff}, #{priceOff}, #{discountPriceLimit}, #{statFetchNum},
-          #{createTime}
-        )
+         ,#{preferentialType},#{percentOff},#{priceOff},#{discountPriceLimit},#{statFetchNum},#{createTime})
     </insert>
 
     <update id="update" parameterType="CouponTemplateDO">
