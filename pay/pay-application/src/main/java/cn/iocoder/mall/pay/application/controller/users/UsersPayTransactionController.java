@@ -9,7 +9,11 @@ import cn.iocoder.mall.pay.api.constant.PayChannelEnum;
 import cn.iocoder.mall.pay.api.dto.transaction.PayTransactionGetDTO;
 import cn.iocoder.mall.pay.api.dto.transaction.PayTransactionSubmitDTO;
 import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 import com.pingplusplus.model.Charge;
+import io.micrometer.core.instrument.util.JsonUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;
@@ -52,21 +56,23 @@ public class UsersPayTransactionController {
 
     @PostMapping(value = "pingxx_pay_success", consumes = MediaType.APPLICATION_JSON_VALUE)
 //    @GetMapping(value = "pingxx_pay_success")
-    public String pingxxPaySuccess(HttpServletRequest request) throws IOException {
+    public String pingxxPaySuccess(HttpServletRequest request, @RequestBody JSONObject body) throws IOException {
         logger.info("[pingxxPaySuccess][被回调]");
         // 读取 webhook
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader reader = request.getReader()) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                sb.append(line);
-            }
-        }
+//        StringBuilder sb = new StringBuilder();
+//        try (BufferedReader reader = request.getReader()) {
+//            String line;
+//            while ((line = reader.readLine()) != null) {
+//                sb.append(line);
+//            }
+//        }
 
-//        JSONObject bodyObj = JSON.parseObject(sb.toString());
+
+        Logger logger=LoggerFactory.getLogger("for_ldy_print");
+        logger.debug(JsonUtils.prettyPrint(body.toJSONString()));
 //        bodyObj.put("webhookId", bodyObj.remove("id"));
 //        String body = bodyObj.toString();
-        payTransactionService.updateTransactionPaySuccess(PayChannelEnum.PINGXX.getId(), sb.toString());
+        payTransactionService.updateTransactionPaySuccess(PayChannelEnum.PINGXX.getId(), body.toString());
         return "success";
     }
 

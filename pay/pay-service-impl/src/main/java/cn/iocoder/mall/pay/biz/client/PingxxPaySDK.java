@@ -73,7 +73,7 @@ public class PingxxPaySDK extends AbstractPaySDK {
         JSONObject paramsObj = JSON.parseObject(params);
         JSONObject chargeObj = paramsObj.getJSONObject("data").getJSONObject("object");
         TransactionSuccessBO transactionPaySuccessBO = new TransactionSuccessBO()
-                .setTransactionCode(chargeObj.getString("order_no"))
+                .setTransactionCode(chargeObj.getString("transaction_no"))
                 .setPaymentTime(new Date(chargeObj.getLong("time_paid") * 1000))
                 .setTradeNo(chargeObj.getString("transaction_no"));
         return CommonResult.success(transactionPaySuccessBO);
