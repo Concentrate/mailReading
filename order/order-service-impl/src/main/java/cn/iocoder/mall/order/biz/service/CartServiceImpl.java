@@ -146,6 +146,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
+    // niubility , some code looks like  some kind of complicated
     public CalcOrderPriceBO calcOrderPrice(CalcOrderPriceDTO calcOrderPriceDTO) {
         // TODO 芋艿，补充一些表单校验。例如说，需要传入用户编号。
         // 校验商品都存在
@@ -282,7 +283,7 @@ public class CartServiceImpl implements CartService {
                         continue;
                     }
                     itemGroup.getItems().add(item);
-                    iterator.remove();
+                    iterator.remove(); // why  delete iterator???,ok ,fine ,next code explain
                 }
                 // 如果匹配到，则添加到 itemGroups 中
                 if (!itemGroup.getItems().isEmpty()) {
@@ -426,8 +427,9 @@ public class CartServiceImpl implements CartService {
         PromotionActivityBO.FullPrivilege.Privilege privilege = privileges.get(privileges.size() - 1);
         Integer presentTotal;
         if (PreferentialTypeEnum.PRICE.getValue().equals(privilege.getPreferentialType())) { // 减价
-            // 计算循环次数。这样，后续优惠的金额就是相乘了
+            // 计算循环次数。这样，后续优惠的金额就是相乘了,
             Integer cycleCount = 1;
+            // xun huan jian mian,yuanlai ruci
             if (activity.getFullPrivilege().getCycled()) {
                 if (MeetTypeEnum.PRICE.getValue().equals(privilege.getMeetType())) {
                     cycleCount = originalTotal / privilege.getMeetValue();

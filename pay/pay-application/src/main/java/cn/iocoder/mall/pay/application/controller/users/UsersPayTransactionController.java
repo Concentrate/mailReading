@@ -9,6 +9,7 @@ import cn.iocoder.mall.pay.api.constant.PayChannelEnum;
 import cn.iocoder.mall.pay.api.dto.transaction.PayTransactionGetDTO;
 import cn.iocoder.mall.pay.api.dto.transaction.PayTransactionSubmitDTO;
 import cn.iocoder.mall.user.sdk.context.UserSecurityContextHolder;
+import com.pingplusplus.model.Charge;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.dubbo.config.annotation.Reference;

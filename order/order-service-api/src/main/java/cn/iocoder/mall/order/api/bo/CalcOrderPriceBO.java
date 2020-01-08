@@ -99,7 +99,7 @@ public class CalcOrderPriceBO {
          */
         private Integer buyPrice;
         /**
-         * 最终价格，单位：分。
+         * 最终 per 价格，单位：分。, after discount, every shop per price
          */
         private Integer presentPrice;
         /**

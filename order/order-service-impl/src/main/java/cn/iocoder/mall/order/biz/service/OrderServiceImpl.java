@@ -248,6 +248,7 @@ public class OrderServiceImpl implements OrderService {
             // 设置价格信息
             CalcOrderPriceBO.Item priceItem = priceItemMap.get(orderItemDO.getSkuId());
             Assert.notNull(priceItem, "商品计算价格为空");
+            // I think there are may be too much num of price
             orderItemDO.setOriginPrice(priceItem.getOriginPrice())
                     .setBuyPrice(priceItem.getBuyPrice())
                     .setPresentPrice(priceItem.getPresentPrice())

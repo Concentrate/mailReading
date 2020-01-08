@@ -30,6 +30,9 @@ public class PingxxPaySDK extends AbstractPaySDK {
                                                   Map<String, Object> extra) {
         Map<String, Object> reqObj = createChargeRequest(transaction, transactionExtension, extra);
         // 请求ping++
+        Charge mockCharge=MockPayCharResults.parseFakePayResult();
+        mockCharge.setChannel("wx_pub");
+//        mockCharge.setCredential(new HashMap<>());
         try {
             Charge charge = Charge.create(reqObj);
             System.out.println(charge.toString());
@@ -38,8 +41,9 @@ public class PingxxPaySDK extends AbstractPaySDK {
                 APIConnectionException | APIException |
                 ChannelException | RateLimitException e) {
             e.printStackTrace();
-            throw new RuntimeException(e); // TODO 芋艿，后续优化
+            // throw new RuntimeException(e); // TODO 芋艿，后续优化 tmp not throw
         }
+        return CommonResult.success(mockCharge.toString());
     }
 
     private static Map<String, Object> createChargeRequest(PayTransactionDO transaction,

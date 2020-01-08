@@ -37,6 +37,7 @@
         let that = this;
         submitTransaction(this.appId, this.orderId, payChannel).then(data => {
           pingpp.createPayment(data.invokeResponse, function(result, err) {
+          result = "success"; // forpurpose,pay not avalied
             if (result === 'success') {
               Dialog.alert({
                 title: '系统提示',
