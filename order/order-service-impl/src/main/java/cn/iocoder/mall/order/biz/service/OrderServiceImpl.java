@@ -1,6 +1,7 @@
 package cn.iocoder.mall.order.biz.service;
 
 import cn.iocoder.common.framework.constant.DeletedStatusEnum;
+import cn.iocoder.common.framework.util.CollectionUtil;
 import cn.iocoder.common.framework.util.DateUtil;
 import cn.iocoder.common.framework.util.ServiceExceptionUtil;
 import cn.iocoder.common.framework.vo.CommonResult;
@@ -66,7 +67,7 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private CartServiceImpl cartService;
 
-    @Reference(validation = "true", version = "${dubbo.consumer.PromotionActivityService.version}")
+    @Reference(validation = "true", version = "${dubbo.consumer.ProductSpuService.version}")
     private ProductSpuService productSpuService;
     @Reference(validation = "true", version = "${dubbo.consumer.UserAddressService.version}")
     private UserAddressService userAddressService;
@@ -264,6 +265,7 @@ public class OrderServiceImpl implements OrderService {
 
         // TODO 芋艿，扣除库存
 
+
         // order
 
         // TODO: 2019-04-11 Sin 订单号需要生成规则
@@ -457,7 +459,7 @@ public class OrderServiceImpl implements OrderService {
 
         // 获取所有订单 items // TODO FROM 芋艿 TO 小范，deleted 是默认条件，所以 by 里面可以不带哈
         // 坑爹啊，原来的传递参数，顺序反了
-        List<OrderItemDO> allOrderItems = orderItemMapper.selectByDeletedAndOrderId(DeletedStatusEnum.DELETED_NO.getValue(),orderDelivery.getOrderId());
+        List<OrderItemDO> allOrderItems = orderItemMapper.selectByDeletedAndOrderId(DeletedStatusEnum.DELETED_NO.getValue(), orderDelivery.getOrderId());
 
         // 当前需要发货订单，检查 id 和 status
         List<OrderItemDO> needDeliveryOrderItems = allOrderItems.stream()
@@ -614,9 +616,18 @@ public class OrderServiceImpl implements OrderService {
                 .setStatus(OrderStatusEnum.WAIT_SHIPMENT.getValue())
                 .setPayAmount(payAmount)
                 .setPaymentTime(new Date());
+        // order item 也应该更新为 收货状态
         int updateCount = orderMapper.updateByIdAndStatus(order.getId(), order.getStatus(), updateOrderObj);
         if (updateCount <= 0) {
             return ServiceExceptionUtil.error(OrderErrorCodeEnum.ORDER_STATUS_NOT_WAITING_PAYMENT.getCode()).getMessage();
+        }
+        List<OrderItemDO> itemDOList = orderItemMapper.selectByDeletedAndOrderId(DeletedStatusEnum.DELETED_NO.getValue(), Integer.valueOf(orderId));
+        if (!CollectionUtil.isEmpty(itemDOList)) {
+            itemDOList.stream().forEach(orderItemDO -> {
+                orderItemDO
+                        .setStatus(OrderStatusEnum.WAIT_SHIPMENT.getValue());
+                orderItemMapper.updateById(orderItemDO);
+            });
         }
         // TODO FROM 芋艿 to 小范，把更新 OrderItem 给补全。
         return "success";

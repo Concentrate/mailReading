@@ -14,7 +14,8 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("product_spu")
-public class ProductSpuDO extends DeletableDO {
+public class
+ProductSpuDO extends DeletableDO {
 
     /**
      * SPU 编号
