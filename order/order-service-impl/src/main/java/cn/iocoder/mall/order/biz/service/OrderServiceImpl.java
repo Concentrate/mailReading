@@ -456,7 +456,8 @@ public class OrderServiceImpl implements OrderService {
         List<Integer> orderItemIds = orderDelivery.getOrderItemIds();
 
         // 获取所有订单 items // TODO FROM 芋艿 TO 小范，deleted 是默认条件，所以 by 里面可以不带哈
-        List<OrderItemDO> allOrderItems = orderItemMapper.selectByDeletedAndOrderId(orderDelivery.getOrderId(), DeletedStatusEnum.DELETED_NO.getValue());
+        // 坑爹啊，原来的传递参数，顺序反了
+        List<OrderItemDO> allOrderItems = orderItemMapper.selectByDeletedAndOrderId(DeletedStatusEnum.DELETED_NO.getValue(),orderDelivery.getOrderId());
 
         // 当前需要发货订单，检查 id 和 status
         List<OrderItemDO> needDeliveryOrderItems = allOrderItems.stream()
