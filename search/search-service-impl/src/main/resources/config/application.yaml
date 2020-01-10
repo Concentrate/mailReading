@@ -2,8 +2,8 @@
 spring:
   data:
     elasticsearch:
-      cluster-name: elasticsearch
-      cluster-nodes: 180.167.213.26:9300
+      cluster-name: elasticsearch_liudeyu
+      cluster-nodes: localhost:9300
       repositories:
         enable: true
 
