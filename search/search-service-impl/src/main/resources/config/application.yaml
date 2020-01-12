@@ -6,6 +6,7 @@ spring:
       cluster-nodes: localhost:9300
       repositories:
         enable: true
+        
 
 # dubbo
 dubbo:
