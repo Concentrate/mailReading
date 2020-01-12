@@ -10,6 +10,7 @@ import cn.iocoder.mall.search.api.dto.ProductConditionDTO;
 import cn.iocoder.mall.search.api.dto.ProductSearchPageDTO;
 import org.apache.dubbo.config.annotation.Reference;
 import io.swagger.annotations.Api;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,6 +29,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 public class UsersProductSearchController {
 
     @Reference(validation = "true", version = "${dubbo.provider.ProductSearchService.version}")
+    @Autowired
     private ProductSearchService productSearchService;
 
     @GetMapping("/page") // TODO 芋艿，后面把 BO 改成 VO
