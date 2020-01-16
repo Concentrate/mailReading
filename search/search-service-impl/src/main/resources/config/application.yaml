@@ -2,7 +2,7 @@
 spring:
   data:
     elasticsearch:
-      cluster-name: elasticsearch
+      cluster-name: ldy_cluster
       cluster-nodes: localhost:9300
       repositories:
         enable: true
