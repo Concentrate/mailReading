@@ -56,8 +56,8 @@ public abstract class AbstractPayNotifySuccessConsumer<T extends AbstractPayNoti
             response = ExceptionUtil.getRootCauseMessage(e);
             handleFailure(updateTask, PayTransactionNotifyStatusEnum.REQUEST_FAILURE.getValue());
             payTransactionNotifyTaskMapper.update(updateTask);
-            // 抛出异常，回滚事务
-            throw e; // TODO 芋艿，此处不能抛出异常。因为，会导致 MQ + 定时任务多重试。此处的目标是，事务回滚 + 吃掉事务。另外，最后的 finally 的日志，要插入成功。
+            // 抛出异常，回滚事务 ,目前没有事务，不能做抛出异常操作
+          //  throw e; // TODO 芋艿，此处不能抛出异常。因为，会导致 MQ + 定时任务多重试。此处的目标是，事务回滚 + 吃掉事务。另外，最后的 finally 的日志，要插入成功。
         } finally {
             // 插入 PayTransactionNotifyLogDO 日志
             PayNotifyLogDO notifyLog = new PayNotifyLogDO().setNotifyId(message.getId())

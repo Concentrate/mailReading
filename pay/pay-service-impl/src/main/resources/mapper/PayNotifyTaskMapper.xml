@@ -55,7 +55,6 @@
         FROM notify_task
         WHERE status IN (1, 4, 5)
         AND next_notify_time <![CDATA[ <= ]]> NOW()
-        AND last_execute_time > next_notify_time
     </select>
 
 </mapper>

@@ -64,6 +64,7 @@ public class PayNotifyTaskDO extends DeletableDO {
      *
      * 2. MQ 消费时，更新 lastExecuteTime 为当时时间
      *
+     * // 这个3 我愣是没理解，不认同
      * 3. 定时任务，扫描 nextNotifyTime < lastExecuteTime 的任务
      *      nextNotifyTime 为当前时间 + N 秒。具体的 N ，由第几次通知决定
      *      lastExecuteTime 为当前时间

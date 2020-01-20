@@ -38,6 +38,8 @@ import java.util.List;
 @org.apache.dubbo.config.annotation.Service(validation = "true", version = "${dubbo.provider.PayTransactionService.version}")
 public class PayTransactionServiceImpl implements PayTransactionService {
 
+
+    // comment,订单没做扣库存，订单过期时间没做
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
@@ -78,6 +80,8 @@ public class PayTransactionServiceImpl implements PayTransactionService {
         // TODO 芋艿 userId 的校验
         return PayTransactionConvert.INSTANCE.convert(payTransaction);
     }
+
+
 
     @Override
     @SuppressWarnings("Duplicates")

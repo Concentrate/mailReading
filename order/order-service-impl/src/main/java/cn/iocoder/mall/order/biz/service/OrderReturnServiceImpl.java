@@ -238,6 +238,8 @@ public class OrderReturnServiceImpl implements OrderReturnService {
             return ServiceExceptionUtil.error(OrderErrorCodeEnum.ORDER_RETURN_REFUND_FAILED.getCode());
         }
 
+        // 没更新库存,可能是需要检查货物后重新入库吗??
+
         // 更新 订单退货 信息
         orderReturnMapper.updateById(
                 new OrderReturnDO()

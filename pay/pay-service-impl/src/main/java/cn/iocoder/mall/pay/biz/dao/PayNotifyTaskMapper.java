@@ -17,7 +17,7 @@ public interface PayNotifyTaskMapper {
      *
      * 1. status 非成功
      * 2. nextNotifyTime 小于当前时间
-     * 3. lastExecuteTime > nextNotifyTime
+     * // 3. lastExecuteTime > nextNotifyTime // @added by ldy, 不认同3，硬是没理解意思
      *
      * @return PayTransactionNotifyTaskDO 数组
      */
